@@ -1,0 +1,79 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.math {
+  background: goldenrod;
+  font-family: verdana,sans-serif; }
+  .math__calc {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%); }
+  .math__num {
+    margin: 15px;
+    color: #fff;
+    font-size: 30px;
+    padding-left: 100px; }
+  .math__num--wrapper {
+    position: relative; }
+  .math__time {
+    padding: 10px;
+    background: black;
+    color: #fff;
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    border: #fff 2px solid; }
+  .math__ans--cal {
+    color: #fff; }
+  .math__start {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    border: 2px solid #fff;
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    transition: .5s; }
+  .math__multiply--symbol {
+    position: absolute;
+    bottom: -10px;
+    left: 10px;
+    color: #fff;
+    font-size: 30px; }
+  .math__score {
+    background: #090;
+    padding: 15px;
+    color: #fff;
+    position: absolute;
+    left: 10%;
+    top: 50px;
+    opacity: 0;
+    transition: .5s; }
+  .math__display {
+    display: block; }
+  .math__field--wrapper {
+    background: brown;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: .5s; }
+    .math__field--wrapper.hidden {
+      margin-top: -100%; }
+
+.yellow {
+  background: yellow;
+  padding: 50px; }
+
+.correct {
+  background: orangered;
+  background: green;
+  color: #fff;
+  font-weight: 700;
+  display: none; }

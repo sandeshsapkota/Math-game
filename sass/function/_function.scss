@@ -1,0 +1,7 @@
+	@function paddingCalc($firstPad,$secondPad) {
+		@return $firstPad + $secondPad;
+	}
+
+	@function calcPercent($target,$container) {
+		@return ($target / $container) * 100%;
+	}
