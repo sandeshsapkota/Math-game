@@ -5,31 +5,45 @@
 	<!-- default css -->
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-<body class="math">
-
-	<div class="math__game--details">
-		<h2>Mental Math</h2>
-		<button class="math__goto">Go to Play</button>
-	</div>
-
-	<div class="math__field--wrapper hidden">
-		<button class="math__start">Play</button>
-		<div class="math__score">
+<body>
+	<div class="math">
+		<div class="math__big-wrap">
+		 	<header class="math__header">
+		 		<h2 class="math__heading">Mental Math Training</h2>
+		 		<div class="math__type">
+		 			<span class="math__type-text">Type:</span>
+		 			<select class="math__type-select">
+		 				<option value="mul" selected="selected">* multiplication</option>
+		 				<option value="sub">- subtraction</option>
+		 				<option value="add">+ addition</option>
+		 			</select>
+		 		</div> <!-- .math__type -->
+		 	</header> <!-- .math__header -->
+		 	<section class="math__inner-wrap">
+		 		<div class="math__intro">Press space bar to play the game</div>
+		 		<div class="math__time">Answer in: 45 seconds</div>
+		 		<div class="math__number-wrap">
+		 			<div class="math__number math__number--one"></div>
+		 			<div class="math__type-symbol"></div>
+		 			<div class="math__number math__number--two"></div>
+		 		</div>
+		 		<form class="math__answer-form" autocomplete="off">
+		 			<div>
+		 				<span class="math__eql-sign">=</span>
+			 			<input type="text" name="answer" class="math__answer-user" disabled="true">
+			 			<div class="math__answer-correct"></div> 
+		 			</div>
+		 			
+		 			<div class="math__answer-type">
+	 					
+	 				</div>
+		 		</form>
+		 		<div class="math__step">4 of 10</div> <!-- step of totalStep : 8 of 10 -->
+		 		<div class="math__cancel">Abort this set: press <strong>Esc</strong></div>
+		 	</section> <!-- .math__inner-wrap -->
 		</div>
-		<div class="correct">Correct Answer</div>
-		<div class="math__time">03 : 15</div>
-		<div class="math__calc">
-			<div class="math__num--wrapper">
-				<div class="math__num math__num--one">0</div>
-				<span class="math__multiply--symbol">*</span>
-				<div class="math__num math__num--two">0</div>
-			</div>
-			<form class="math__ans" autocomplete="off">
-				<input type="text" name="answer" class="math__ans--user">
-			</form>
-		</div>
 	</div>
-
+	
 	<!-- Script  -->
 		<script src="js/script.js"></script>
 </body>
