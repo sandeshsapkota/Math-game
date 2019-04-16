@@ -11,7 +11,13 @@ body{
 	color: #343A3D;;
 	font-family: Arial,sans-serif;
 	padding-top: 75px;
-	background: #999;
+	background: #333;
+}
+
+%horizental-center {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .math{
@@ -60,13 +66,13 @@ body{
 	}
 
 	&__time{
-		font-size: 14px;
+		font-size: 13px;
 	}
 
 	&__number-wrap{
 		display: flex;
 		height: 65px;
-		visibility: hidden;
+		/*visibility: hidden;*/
 		background: #fff;
 		width: 90%;
 		margin: 30px auto 0;
@@ -81,7 +87,7 @@ body{
 	}
 
 	&__eql-sign{
-		font-size: 40px;
+		font-size: 46px;
 		margin: 0 10px;
 	}
 
@@ -89,42 +95,50 @@ body{
 		margin-top: 40px;
 		height: 93px;
 
-		div{
+		div:first-child{
 			display: flex;
 			justify-content: center;
+			align-items: center;
 		}
 	}
 
 	&__answer-user{
-		/*padding: 15px 0;*/
 		margin: 0 10px;
 		width: 190px;
-		font-size: 40px;
+		font-size: 46px;
+	}
+
+	&__answer-user:disabled{
+		background: #fff;
+		border-width: 0;
+		border: 1px solid #a9a9a9;
 	}
 
 	&__answer-correct{
 		color: #909090;
-		font-size: 40px;
+		font-size: 46px;
 		display: none;
 	}
 
 	&__answer-type{
-		margin-top: 15px;
 		font-size: 25px;
+		padding: 3px 0 0 100px;
+		line-height: 1.1;
+		font-family: cursive;
 	}
 
 	&__answer-type--correct{
-		color: #218321;
-		font: Arial,sans-serif;
+		color: #009F00;
 	}
 
 	&__answer-type--wrong{
-		color: #f6250d;
+		color: #EE0000;;
 	}
 
 	&__step{
 		font-size: 13px;
-		margin-top: 10px;
+		margin-top: 15px;
+		visibility: hidden;
 	}
 
 	&__cancel{
@@ -132,19 +146,118 @@ body{
 	}
 
 	&__intro{
-		height: 65px;
-		/*border: 2px solid #F08710;*/
 		position: absolute;
-	    width: 90%;
-	    left: 33px;
-	    top: 69px;
+	    width: 50%;
+	    left: 50%;
+	    transform: translateX(-50%);
+	    bottom: 20px;
 	    background: #fff;
-	    /*display: none;*/
 	    text-align: center;
 	    font-weight: 700;
-	    display: flex;
-	    align-items: center;
-	    justify-content: center;
+	    padding: 5px;
+	    cursor: pointer;
+	}
+
+	&__intro-title{
+		color: #F08710;
+		display: block;
+	}
+
+	&__intro-text{
+		color: #707070;
+		display: block;
+	}
+
+
+	&__set-complete{
+		background-color: #e1eef0;
+		width: 270px;
+		padding: 10px;
+
+		@extend %horizental-center;
+		top: 15px;
+
+		text-align: center;
+		transition: 1s;
+		visibility: hidden;
+		height: 0;
+		opacity: 0;
+	}
+
+	&__set-complete--visible{
+		height: 65px;
+		visibility: visible;
+		opacity: 1;
+	}
+
+	&__set-complete-title{
+		display: block;
+		font-size: 15px;
+	}
+
+
+	&__set-complete-text{
+		display: block;
+		font-size: 14px;
+		margin-top: 5px;
+	}
+
+	&__abort{
+	    visibility: none;
+	    padding: 10px;
+	    text-align: center;
+	}
+
+	&__incre{
+		background-color: #d3f0d1;
+		padding: 10px;
+		visibility: hidden;
+		height: 0;
+		transition: .5s;
+		width: 270px;
+		text-align: center;
+		@extend %horizental-center;
+		top: 85px;
+	}
+
+	&__incre--visible{
+		height: 65px;
+		visibility: visible;
+		opacity: 1;
+	}
+
+	&__decre{
+		background-color: cadetblue;
+		padding: 10px;
+		visibility: hidden;
+		height: 0;
+		transition: .5s;
+		width: 270px;
+		text-align: center;
+		@extend %horizental-center;
+		top: 85px;
+	}
+
+	&__decre--visible{
+		height: 65px;
+		visibility: visible;
+		opacity: 1;
+	}
+
+	&__abort-notif{
+		margin-top: 10px;
+		height: 0;
+		visibility: hidden;
+		background: #fcf973;
+		padding: 10px;
+		text-align: center;
+		transition: .5s;
+		@extend %horizental-center;
+	}
+
+	&__abort-notif--visible {
+		visibility: visible;
+		height: 65px;
 	}
 
 }

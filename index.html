@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
 	<title>Math</title>
 	<!-- default css -->
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
+
 	<div class="math">
 		<div class="math__big-wrap">
 		 	<header class="math__header">
@@ -20,13 +22,34 @@
 		 		</div> <!-- .math__type -->
 		 	</header> <!-- .math__header -->
 		 	<section class="math__inner-wrap">
-		 		<div class="math__intro">Press space bar to play the game</div>
-		 		<div class="math__time">Answer in: 45 seconds</div>
+		 		<div class="math__intro">
+		 			<span class="math__intro-title">Press the Spacebar to start training </span>
+		 			<span class="math__intro-text">or click this message</span> 
+		 		</div>
+		 		<div class="math__set">
+		 			<div class="math__set-complete">
+			 			<span class="math__set-title">Set Complete</span>
+						<span class="math__set-text">Mental Math task is complete</span>
+					</div>
+					<div class="math__incre">
+						Mental Math Level Increased <br>
+						Your new level is
+					</div>
+					<div class="math__decre">
+						Mental Math Level Decresed <br>
+						Your level is
+					</div>
+					<div class="math__abort-notif">
+						Set Cancelled <br>
+						Mental Math task was cancelled
+					</div>		
+		 		</div> <!-- .math__set -->
+		 		<div class="math__time">Answer in: <strong>45</strong> seconds</div>
 		 		<div class="math__number-wrap">
 		 			<div class="math__number math__number--one"></div>
 		 			<div class="math__type-symbol"></div>
 		 			<div class="math__number math__number--two"></div>
-		 		</div>
+		 		</div> <!-- .math__number-wrap -- random numbers wraping -->
 		 		<form class="math__answer-form" autocomplete="off">
 		 			<div>
 		 				<span class="math__eql-sign">=</span>
@@ -34,16 +57,15 @@
 			 			<div class="math__answer-correct"></div> 
 		 			</div>
 		 			
-		 			<div class="math__answer-type">
-	 					
+		 			<div class="math__answer-type"> 
 	 				</div>
-		 		</form>
+		 		</form> <!-- .math__answer-form -->
 		 		<div class="math__step">4 of 10</div> <!-- step of totalStep : 8 of 10 -->
-		 		<div class="math__cancel">Abort this set: press <strong>Esc</strong></div>
+		 		<div class="math__abort">Abort this set: press <strong>Esc</strong></div>
 		 	</section> <!-- .math__inner-wrap -->
-		</div>
-	</div>
-	
+		</div> <!-- .math__big-wrap -->
+	</div> <!-- .math -->
+
 	<!-- Script  -->
 		<script src="js/script.js"></script>
 </body>
