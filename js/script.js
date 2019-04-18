@@ -13,11 +13,11 @@ const timeBoard = document.querySelector('.math__time strong');
 const answerTypeBox = document.querySelector('.math__answer-type');
 const selectedMathType = document.querySelector('.math__type-select');
 const mathIntro = document.querySelector('.math__intro');
-const mathNotifBox = document.querySelector('.math__set-complete');
+const mathNotifBox = document.querySelector('.math__set--complete');
 const mathAbortBox = document.querySelector('.math__abort');
-const mathIncrementBox = document.querySelector('.math__incre');
-const mathDecrementBox = document.querySelector('.math__decre');
-const mathAbortNotif = document.querySelector('.math__abort-notif');
+const mathIncrementBox = document.querySelector('.math__set--incre');
+const mathDecrementBox = document.querySelector('.math__set--decre');
+const mathAbortNotif = document.querySelector('.math__set--abort');
 var answer = { correctAns: 0};
 var gameStep;
 var timeLeft;
@@ -66,10 +66,14 @@ function startGame() {
 		return;
 	};
 
+	userAnswerBox.value = '';
+
 	hideResult(); // hides all results from the previous game
 
 	enableAnswerBox();
 	userAnswerBox.focus();
+
+	mathAbortNotif.classList.remove('math__set--visible'); //  in case previous game was aborted
 
 	userAnswerBox.value = '';
 	mathIntro.style.display = 'none';
@@ -108,11 +112,10 @@ function startGame() {
 }
 
 
-function submitForm(e) {
-	e.preventDefault();
+function submitForm() {
 	checkAnswer();
 	clearInterval(timeLeft); // to stop while submiting
-};
+}
 
 
 function enableAnswerBox() {
@@ -179,14 +182,16 @@ function displayCorrectAnswer() {
 
 function gameAbort() {
 	clearInterval(timeLeft);
-	mathAbortNotif.classList.add('math__abort-notif--visible');
+	mathAbortNotif.classList.add('math__set--visible');
+	mathAbortBox.style.visibility = 'hidden';
+	mathIntro.style.display = 'block';
 	userAnswerBox.disabled = true;
 }
 
 function gameOver() {
 	clearInterval(timeLeft);
 	userAnswerBox.disabled = true;
-	mathNotifBox.classList.add('math__set-complete--visible');
+	mathNotifBox.classList.add('math__set--visible');
 	mathIntro.style.display = 'block';
 	mathAbortBox.style.visibility = 'hidden';
 	gameStepBox.style.visibility = 'hidden';
@@ -206,55 +211,80 @@ function gameOver() {
 
 
 function mathIncrement() { 
-	mathIncrementBox.classList.add('math__incre--visible');
+	mathIncrementBox.classList.add('math__set--visible');
 }
 
 function mathDecrement() { 
-	mathDecrementBox.classList.add('math__decre--visible');
+	mathDecrementBox.classList.add('math__set--visible');
 }
 
 function hideResult() {
 	answerTypeBox.textContent = '';
 	answerTypeBox.classList.remove('math__answer-type--wrong');
-	mathNotifBox.classList.add('math__set-complete--visible');
+	mathNotifBox.classList.add('math__set--visible');
 	correctAnsBox.textContent = '';
-	mathNotifBox.classList.remove('math__set-complete--visible');
-	mathIncrementBox.classList.remove('math__incre--visible');
-	mathDecrementBox.classList.remove('math__decre--visible');
+	mathNotifBox.classList.remove('math__set--visible');
+	mathIncrementBox.classList.remove('math__set--visible');
+	mathDecrementBox.classList.remove('math__set--visible');
 }
 
  
 /************ Event Listener ************/
 
-userAnswerForm.addEventListener('submit', submitForm);
+var count = 0;
+
+window.addEventListener('keydown', function(e) {
+
+	if(e.keyCode === 32) { 
+		// if spaceBar is pressed start the game
+ 		e.preventDefault();
+		gameStep = 1;
+		startGame();
+	}
+
+	if(e.keyCode === 27) {
+		// if Esc pressed abort the game
+		gameAbort();
+	}
+
+	if(e.keyCode === 13) {
+		// if enter key is pressed update count
+		count++; 
+	}
+
+}); 
+
+window.addEventListener('keyup', function(e) {
+
+	// if enter key is released reset the count
+
+ 	if(e.keyCode === 13) {
+ 		count = 0;
+ 	}
+
+}); 
+
+
+
+userAnswerForm.addEventListener('submit', function(e) {
+	e.preventDefault();
+	if(count === 1) {
+		// to not let form submit more than one time even if enter is pressed for long time
+		submitForm();
+	}
+});
+
+
+
 
 mathIntro.addEventListener('click', function() {
 	gameStep = 1;
 	startGame();
 });
 
-window.addEventListener('keydown', function(e) {
-	if(e.keyCode === 32) { // if spaceBar pressed
-		gameStep = 1;
-		startGame();
-	}else if(e.keyCode === 27) { // if Esc pressed
-		gameAbort();
-	}
-
-}); 
 
 
-// var down = false;
-// document.addEventListener('keydown', function (e) {
-//     if(down) return;
-//     down = true;
-//  	if(e.keyCode === 32) {
-// 		startGame();
 
-// 	};
+window.addEventListener('keypress', function(e) {
 
-// }, false);
-
-// document.addEventListener('keyup', function () {
-//     down = false;
-// }, false);
+});

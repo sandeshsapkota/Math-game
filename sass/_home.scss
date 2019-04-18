@@ -43,7 +43,8 @@ body{
 	}
 
 	&__type-select{
-		font-weight: bold;
+		font-weight: 700;
+		font-size: 14px;
 		border-radius: 2px;
 	    background-color: #f0f3f5;
 	    outline: none;
@@ -92,7 +93,7 @@ body{
 	}
 
 	&__answer-form{
-		margin-top: 40px;
+		margin-top: 20px;
 		height: 93px;
 
 		div:first-child{
@@ -137,11 +138,11 @@ body{
 
 	&__step{
 		font-size: 13px;
-		margin-top: 15px;
+		margin-top: 25px;
 		visibility: hidden;
 	}
 
-	&__cancel{
+	&__abort{
 		margin-top: 20px;
 	}
 
@@ -167,97 +168,55 @@ body{
 		color: #707070;
 		display: block;
 	}
+ 
 
-
-	&__set-complete{
+	&__set{
+		position: absolute;
+		left: 50%;
 		background-color: #e1eef0;
 		width: 270px;
-		padding: 10px;
-
-		@extend %horizental-center;
-		top: 15px;
-
-		text-align: center;
-		transition: 1s;
+		padding: 5px;
+		transition: .5s;
+		border-radius: 5px;
 		visibility: hidden;
 		height: 0;
 		opacity: 0;
+		@extend %horizental-center;
+		text-align: center;
 	}
 
-	&__set-complete--visible{
-		height: 65px;
+	&__set--visible{
 		visibility: visible;
 		opacity: 1;
+		height: 52px;
 	}
 
-	&__set-complete-title{
+	&__set-title{
 		display: block;
 		font-size: 15px;
 	}
 
-
-	&__set-complete-text{
+	&__set-text{
 		display: block;
-		font-size: 14px;
+		font-size: 13px;
 		margin-top: 5px;
 	}
-
-	&__abort{
-	    visibility: none;
-	    padding: 10px;
-	    text-align: center;
+	 
+	&__set--complete{
+		top: 90px;
 	}
 
-	&__incre{
+	&__set--incre{
 		background-color: #d3f0d1;
-		padding: 10px;
-		visibility: hidden;
-		height: 0;
-		transition: .5s;
-		width: 270px;
-		text-align: center;
-		@extend %horizental-center;
-		top: 85px;
+	}
+	 
+	&__set--decre{
+	    background-color: rgb(255, 118, 119);
 	}
 
-	&__incre--visible{
-		height: 65px;
-		visibility: visible;
-		opacity: 1;
-	}
-
-	&__decre{
-		background-color: cadetblue;
-		padding: 10px;
-		visibility: hidden;
-		height: 0;
-		transition: .5s;
-		width: 270px;
-		text-align: center;
-		@extend %horizental-center;
-		top: 85px;
-	}
-
-	&__decre--visible{
-		height: 65px;
-		visibility: visible;
-		opacity: 1;
-	}
-
-	&__abort-notif{
+	&__set--abort{
 		margin-top: 10px;
-		height: 0;
-		visibility: hidden;
 		background: #fcf973;
-		padding: 10px;
-		text-align: center;
-		transition: .5s;
-		@extend %horizental-center;
-	}
-
-	&__abort-notif--visible {
-		visibility: visible;
-		height: 65px;
 	}
 
 }
